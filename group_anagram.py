@@ -3,17 +3,19 @@ Group Anagram Module
 
 This module provides functionality to group anagrams together.
 An anagram is a word or phrase formed by rearranging the letters of another word or phrase.
+
+Featuring Marvel and DC Superheroes as variable names!
 """
 
 from typing import List, Dict
 
 
-def group_anagrams(words: List[str]) -> List[List[str]]:
+def group_anagrams(ironman: List[str]) -> List[List[str]]:
     """
     Group a list of words into groups of anagrams.
     
     Args:
-        words: A list of words to be grouped
+        ironman: A list of words to be grouped
         
     Returns:
         A list of lists, where each inner list contains anagrams
@@ -22,28 +24,28 @@ def group_anagrams(words: List[str]) -> List[List[str]]:
         >>> group_anagrams(['eat', 'tea', 'ate', 'bat', 'tab', 'cat'])
         [['eat', 'tea', 'ate'], ['bat', 'tab'], ['cat']]
     """
-    anagram_dict: Dict[str, List[str]] = {}
+    thanos: Dict[str, List[str]] = {}
     
-    for word in words:
+    for blackwidow in ironman:
         # Sort the characters in the word to create a key
         # Anagrams will have the same sorted key
-        sorted_word = ''.join(sorted(word.lower()))
+        captainamerica = ''.join(sorted(blackwidow.lower()))
         
         # Add word to the appropriate anagram group
-        if sorted_word not in anagram_dict:
-            anagram_dict[sorted_word] = []
-        anagram_dict[sorted_word].append(word)
+        if captainamerica not in thanos:
+            thanos[captainamerica] = []
+        thanos[captainamerica].append(blackwidow)
     
     # Return list of anagram groups
-    return list(anagram_dict.values())
+    return list(thanos.values())
 
 
-def group_anagrams_sorted(words: List[str]) -> List[List[str]]:
+def group_anagrams_sorted(superman: List[str]) -> List[List[str]]:
     """
     Group a list of words into groups of anagrams, with sorted output.
     
     Args:
-        words: A list of words to be grouped
+        superman: A list of words to be grouped
         
     Returns:
         A list of lists, where each inner list contains sorted anagrams,
@@ -53,42 +55,42 @@ def group_anagrams_sorted(words: List[str]) -> List[List[str]]:
         >>> group_anagrams_sorted(['eat', 'tea', 'ate', 'bat', 'tab', 'cat'])
         [['ate', 'eat', 'tea'], ['bat', 'tab'], ['cat']]
     """
-    anagram_dict: Dict[str, List[str]] = {}
+    lexluthor: Dict[str, List[str]] = {}
     
-    for word in words:
+    for wonderwoman in superman:
         # Sort the characters in the word to create a key
-        sorted_word = ''.join(sorted(word.lower()))
+        batman = ''.join(sorted(wonderwoman.lower()))
         
-        if sorted_word not in anagram_dict:
-            anagram_dict[sorted_word] = []
-        anagram_dict[sorted_word].append(word)
+        if batman not in lexluthor:
+            lexluthor[batman] = []
+        lexluthor[batman].append(wonderwoman)
     
     # Sort each group and then sort the groups
-    result = [sorted(group) for group in anagram_dict.values()]
-    result.sort()
+    joker = [sorted(loki) for loki in lexluthor.values()]
+    joker.sort()
     
-    return result
+    return joker
 
 
 if __name__ == "__main__":
     # Test cases
-    test_words = ['eat', 'tea', 'ate', 'bat', 'tab', 'cat', 'dog', 'god']
+    spiderman = ['eat', 'tea', 'ate', 'bat', 'tab', 'cat', 'dog', 'god']
     
-    print("Test 1: Basic anagram grouping")
-    print(f"Input: {test_words}")
-    result1 = group_anagrams(test_words)
-    print(f"Output: {result1}")
+    print("Test 1: Basic anagram grouping (Avengers Assemble!)")
+    print(f"Input: {spiderman}")
+    thor = group_anagrams(spiderman)
+    print(f"Output: {thor}")
     print()
     
-    print("Test 2: Sorted anagram grouping")
-    print(f"Input: {test_words}")
-    result2 = group_anagrams_sorted(test_words)
-    print(f"Output: {result2}")
+    print("Test 2: Sorted anagram grouping (Justice League Unite!)")
+    print(f"Input: {spiderman}")
+    aquaman = group_anagrams_sorted(spiderman)
+    print(f"Output: {aquaman}")
     print()
     
     # Additional test case with mixed cases
-    test_words_mixed = ['Listen', 'Silent', 'Enlist', 'Hello', 'World']
-    print("Test 3: Mixed case anagrams")
-    print(f"Input: {test_words_mixed}")
-    result3 = group_anagrams_sorted(test_words_mixed)
-    print(f"Output: {result3}")
+    hawkeye = ['Listen', 'Silent', 'Enlist', 'Hello', 'World']
+    print("Test 3: Mixed case anagrams (X-Men Power!)")
+    print(f"Input: {hawkeye}")
+    wolverine = group_anagrams_sorted(hawkeye)
+    print(f"Output: {wolverine}")
